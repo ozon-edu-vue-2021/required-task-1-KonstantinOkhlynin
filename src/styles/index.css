@@ -9,7 +9,7 @@ body {
 img {
     width: 100%;
     max-width: 100%;
-    display: bloсk;
+    border-radius: 6px;
 }
 
 a {
@@ -47,6 +47,7 @@ main {
     box-sizing: border-box;
     border-radius: 6px;
     margin: 50px auto;
+    align-items: center;
 }
 
 /* Action style */
@@ -80,16 +81,9 @@ a {
     min-height: 100px;
 }
 
-a:nth-child(n) {
-    background-color: #EFEBE9;
-}
 
-a:nth-child(2n) {
-    background-color: #D7CCC8;
-}
-
-a:nth-child(3n) {
-    background-color: #BCAAA4;
+.fetch {
+    font-size: 30px;
 }
 
 /* Popup style */
@@ -106,6 +100,9 @@ figure {
 
 figure img {
     border-radius: 6px;
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: contain;
 }
 
 figcaption {
@@ -121,38 +118,45 @@ figcaption {
     position: fixed;
     visibility: hidden;
     display: flex;
+    flex-direction: column;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     background-color: rgba(33, 33, 33, 0.5);
-    z-index: -1;
+    z-index: 1;
 }
 
 .popup.open {
     visibility: visible;
 }
 
-.action {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    background-color: transparent;
+.action-popup-close {
     line-height: 0;
     font-size: 50px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    max-width: 500px;
+    height: 50px;
+    margin-bottom: 15px;
+    background: none;
+    margin-left: auto;
 }
+
+.action-popup-close:hover {
+    background-color: transparent;
+}
+
 
 .popup .content {
     width: 100%;
     margin: auto;
     box-sizing: border-box;
     max-width: 600px;
+    display: flex;
+    justify-content: center;
     background-color: #fff;
     border-radius: 6px;
     padding: 20px;
+    overflow: overlay;
 }
 
 .popup .link {
