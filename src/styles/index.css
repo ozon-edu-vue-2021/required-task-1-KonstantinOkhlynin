@@ -9,7 +9,7 @@ body {
 img {
     width: 100%;
     max-width: 100%;
-    display: bloсk;
+    border-radius: 6px;
 }
 
 a {
@@ -81,17 +81,6 @@ a {
     min-height: 100px;
 }
 
-a:nth-child(n) {
-    background-color: #EFEBE9;
-}
-
-a:nth-child(2n) {
-    background-color: #D7CCC8;
-}
-
-a:nth-child(3n) {
-    background-color: #BCAAA4;
-}
 
 .fetch {
     font-size: 30px;

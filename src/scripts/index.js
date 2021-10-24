@@ -33,6 +33,9 @@ const getPictures = function (page = 1, limit = 10) {
     fetch(`https://picsum.photos/v2/list?page=${page};limit=${limit}`)
         .then(function (response) {return response.json()})
         .then(function (result) {renderPictures(result)})
+        .catch((err) => {
+            console.error(err);
+        })
 }
 
 /**
@@ -45,6 +48,9 @@ const getPictureInfo = function (id = 0) {
     fetch(`https://picsum.photos/id/${id}/info`)
         .then(function (response) {return response.json()})
         .then(function (result) {renderPopupPicture(result)})
+        .catch((err) => {
+            console.error(err);
+        })
 }
 
 /**
@@ -150,9 +156,8 @@ const togglePopup = function () {
 const actionHandler = function (evt) {
     evt.preventDefault();
     const nextPage = evt.currentTarget.dataset.page;
-    evt.currentTarget.dataset.page = nextPage + 1;
-
-    if (nextPage > MAX_PAGE_IAMGES) {
+    evt.currentTarget.dataset.page = +nextPage + 1;
+    if (nextPage >= MAX_PAGE_IAMGES) {
         console.warn(`WARN: You are trying to call a page that exceeds ${MAX_PAGE_IAMGES}`);
         evt.currentTarget.disabled = true;
     } else {
@@ -171,7 +176,6 @@ const imageHandler = function (evt) {
 
     if (evt.target.closest('.link')) {
         getPictureInfo(evt.target.parentNode.dataset.id);
-        console.log(evt.target.parentNode.dataset.id)
     }
 }
 
